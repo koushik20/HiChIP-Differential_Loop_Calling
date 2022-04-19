@@ -141,17 +141,10 @@ pcp2
 km_filt <- qc_filt
 dim(km_filt)
 
-# group <- factor(c("ovarian", "ovarian", "ovarian", "ovarian", 
-#                   "FT", "FT", "FT", "FT"))
-# design <- model.matrix(~km_filt@colData$groups)
-# km_res2 <- loopAssoc(km_filt, method = "edgeR", design = design,
-#                      contrast = "contr.treatment")
-
 
 # First model using edgeR over-dispersed Poisson regression
 km_res <- loopAssoc(km_filt, method = "edgeR", coef = 2)
 head(km_res@rowData)
-
 
 
 # # second model using limma-voom empirical Bayes analysis
